@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration>
+
+<configuration debug="true">
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="UTF-8">
+            <pattern>[%d{HH:mm:ss.SSS}] [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>api.log</file>
+        <append>true</append>
+        <encoder charset="UTF-8">
+            <pattern>%-4relative [%d{yyyy:MM:dd HH:mm:ss.SSS}] [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="pro.sky.telegrambot.service.BotCommandService" level="WARN">
+        <appender-ref ref="file"/>
+    </logger>
+
+    <logger name="pro.sky.telegrambot.service.NotificationTaskService" level="WARN">
+        <appender-ref ref="file"/>
+    </logger>
+
+    <root>
+        <appender-ref ref="console" />
+    </root>
+</configuration>
